@@ -1,0 +1,50 @@
+[
+    {
+        "categoryName": "CSPM executive dashboard",
+        "categoryID": "CSPM",
+        "widgets": [
+            {
+                "name": "Cloud Accounts",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            },
+            {
+                "name": "Cloud Account Risk assessment",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            }
+        ]
+    },
+    {
+        "categoryName": "CWPP Dashboard",
+        "categoryID": "CWPP",
+        "widgets": [
+            {
+                "name": "Top 5 namespace specfic alerts",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            },
+            {
+                "name": "Work load alerts",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            }
+        ]
+    },
+    {
+        "categoryName": "Registry Scan",
+        "categoryID": "Registry",
+        "widgets": [
+            {
+                "name": "Image risk assesment",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            },
+            {
+                "name": "Image Security Issues",
+                "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "visible": true
+            }
+        ]
+    }
+]
