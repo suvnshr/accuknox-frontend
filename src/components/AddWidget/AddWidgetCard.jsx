@@ -6,8 +6,9 @@ import AddWidgetButton from "./AddWidgetButton";
  * Component which renders the Add widget button in a card
  * @param {Array} filteredWidgetList List of all widgets after performing search
  * @param {String} searchQuery the current search query
+ * @param {String} rowCategoryID the category ID of the current row we are rendering in
  */
-function AddWidgetCard({ filteredWidgetList, searchQuery }) {
+function AddWidgetCard({ filteredWidgetList, searchQuery, rowCategoryID }) {
     return (
         <Grid xs={4} item>
             <Card
@@ -45,7 +46,7 @@ function AddWidgetCard({ filteredWidgetList, searchQuery }) {
 
                     {/* Show the add widget button */}
                     <Box sx={{ py: 1 }}>
-                        <AddWidgetButton />
+                        <AddWidgetButton rowCategoryID={rowCategoryID} />
                     </Box>
                 </CardContent>
             </Card>

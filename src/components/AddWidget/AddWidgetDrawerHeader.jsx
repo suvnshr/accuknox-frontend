@@ -27,7 +27,7 @@ function AddWidgetDrawerHeader() {
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <IconButton onClick={toggleAddWidgetDrawer}>
+                    <IconButton onClick={() => toggleAddWidgetDrawer()}>
                         <CloseOutlined htmlColor="#fff" />
                     </IconButton>
                 </Grid>

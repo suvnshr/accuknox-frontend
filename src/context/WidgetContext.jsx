@@ -8,12 +8,14 @@ const initialWidgetState = {
     widgetsData: widgetsData,
     addWidgetDrawerOpen: false,
     searchQuery: "",
+    currentCategoryID: widgetsData[0].categoryID,
     setWidgetsData: () => {},
     setAddWidgetDrawerOpen: () => {},
     toggleAddWidgetDrawer: () => {},
     toggleWidgetVisitbility: () => {},
     createWidget: () => {},
     performSearch: () => {},
+    setCurrentCategoryID: () => {},
 };
 
 // Define the `WidgetContent`
@@ -23,7 +25,6 @@ export const WidgetContext = createContext(initialWidgetState);
  * The `WidgetContent` provider, this makes the context available to all the child components
  */
 export function WidgetContextProvider({ children }) {
-
     // All Widgets data
     const [widgetsData, setWidgetsData] = useState(
         initialWidgetState.widgetsData
@@ -39,8 +40,25 @@ export function WidgetContextProvider({ children }) {
         initialWidgetState.addWidgetDrawerOpen
     );
 
+    // The current selected category ID or TAB of the add widget drawer
+    // Also used by `AddWidgetButton` to set the tab of the add widget drawer
+    const [currentCategoryID, setCurrentCategoryID] = React.useState(
+        // Set the first row's category ID as the default
+        initialWidgetState.widgetsData[0].categoryID
+    );
+
     // Toggle the add widget drawer
-    const toggleAddWidgetDrawer = () => {
+    const toggleAddWidgetDrawer = (rowCategoryID = null) => {
+
+        // If the category ID of the row is set
+        // then open the drawer with that TAB selcted
+        if(rowCategoryID) {
+            setCurrentCategoryID(rowCategoryID);
+        } 
+        // else open the drawer with the first tab selected
+        else {
+            setCurrentCategoryID(initialWidgetState.widgetsData[0].categoryID)
+        }
         setAddWidgetDrawerOpen(!addWidgetDrawerOpen);
     };
 
@@ -93,6 +111,8 @@ export function WidgetContextProvider({ children }) {
                 createWidget,
                 performSearch,
                 searchQuery,
+                currentCategoryID,
+                setCurrentCategoryID,
             }}
         >
             {children}

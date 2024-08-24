@@ -5,8 +5,9 @@ import React, { useContext } from "react";
 
 /**
  * Component which renders the add widget button
+ * @param {String} rowCategoryID the category ID of the current row we are rendering in
  */
-function AddWidgetButton() {
+function AddWidgetButton({ rowCategoryID = null }) {
     const { toggleAddWidgetDrawer } = useContext(WidgetContext);
 
     return (
@@ -14,8 +15,9 @@ function AddWidgetButton() {
             color="secondary"
             variant="outlined"
             startIcon={<AddOutlined />}
-            // Toggle the add widget drawer on click
-            onClick={toggleAddWidgetDrawer}
+            // Toggle the add widget drawer on click, 
+            // and switch to the category tab
+            onClick={() => toggleAddWidgetDrawer(rowCategoryID)}
         >
             Add Widget
         </Button>

@@ -42,6 +42,7 @@ function WidgetRow({ rowData, rowIndex }) {
 
                 {/* render the Add widget card */}
                 <AddWidgetCard
+                    rowCategoryID={rowData.categoryID}
                     filteredWidgetList={filteredWidgetList}
                     searchQuery={searchQuery}
                 />
