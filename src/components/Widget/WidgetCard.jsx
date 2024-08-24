@@ -43,8 +43,6 @@ function WidgetCard({ widgetData, rowIndex, widgetIndex }) {
                                 alignItems: "Center",
                             }}
                         >
-
-
                             {/* Widget name */}
                             <Typography
                                 color="secondary"
@@ -54,12 +52,10 @@ function WidgetCard({ widgetData, rowIndex, widgetIndex }) {
                                 {widgetData.name}
                             </Typography>
 
-                            {/* Don't show the hide button if the widget is already hidden 
-                            and matches the search qyery */}
-                            {!showWidgetWhenSearched ? (
+                            {/* Don't show the hide button if the user is searching */}
+                            {searchQuery.length === 0 ? (
                                 <IconButton
                                     color="secondary"
-
                                     // Hide the widget on click of the close button
                                     onClick={() =>
                                         toggleWidgetVisitbility(
@@ -70,8 +66,11 @@ function WidgetCard({ widgetData, rowIndex, widgetIndex }) {
                                 >
                                     <CloseOutlined fontSize="small" />
                                 </IconButton>
-                            ) : (
+                            ) : // When the user is sarching, show the state of the widget, whether it is "hidden" or "shown"
+                            showWidgetWhenSearched ? (
                                 <Chip label="hidden" />
+                            ) : (
+                                <Chip label="visible" />
                             )}
                         </Box>
 
